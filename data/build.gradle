@@ -1,7 +1,10 @@
 apply plugin: 'java-library'
 
 dependencies {
+    def dataDependencies = rootProject.ext.dataDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitConverter
 
 }
 

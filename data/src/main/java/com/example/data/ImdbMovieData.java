@@ -1,13 +1,17 @@
 package com.example.data;
 
-import android.content.Context;
-
+import com.example.data.models.MovieResponse;
 import com.example.data.rest.Connection;
-import com.example.data.rest.callback.MovieDataRequestCallback;
+import com.example.data.rest.MoviesApi;
+
+import java.io.IOException;
+
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ImdbMovieData {
     private static String API_KEY = "4cef18ce1205491d2cc20e9666804053";
-    private static String PLAY_NOW_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=4cef18ce1205491d2cc20e9666804053&language=en-US&page=1";
+    private static String BASE_URL = "https://api.themoviedb.org/";
     private static ImdbMovieData imdbMovieData = null;
 
     private ImdbMovieData() {
@@ -21,8 +25,9 @@ public class ImdbMovieData {
     }
 
     // Test
-    public void getPlayNowList(Context context) {
-        MovieDataRequestCallback callback = new MovieDataRequestCallback();
-        Connection.getData(context, PLAY_NOW_URL, callback).start();
+    public void getPlayNowList(final int page) throws IOException {
+        MoviesApi api = Connection.getData(BASE_URL).create(MoviesApi.class);
+        Response<MovieResponse> playNowList = api.getNowPlayingList(API_KEY, page).execute();
+        System.out.println(playNowList.body().toString() + "");
     }
 }

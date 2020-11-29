@@ -6,12 +6,23 @@ import android.os.Bundle;
 
 import com.example.data.ImdbMovieData;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImdbMovieData.getInstance().getPlayNowList(getApplicationContext());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ImdbMovieData.getInstance().getPlayNowList(1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }

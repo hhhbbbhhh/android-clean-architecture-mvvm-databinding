@@ -7,12 +7,13 @@ ext {
 
     //Libraries
     gsonVersion = '2.3'
+    retrofit = '2.1.0'
     androidAnnotationsVersion = '21.0.3'
     arrowVersion = '1.0.0'
-    cronetVersion = '16.0.0'
 
     dataDependencies = [
+            retrofit: "com.squareup.retrofit2:retrofit:${retrofit}",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit}",
             gson: "com.google.code.gson:gson:${gsonVersion}",
-            cronet: "com.google.android.gms:play-services-cronet:${cronetVersion}"
     ]
 }
