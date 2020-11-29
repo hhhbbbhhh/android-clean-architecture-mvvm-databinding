@@ -1,0 +1,18 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "24.0.1"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 21
+    androidCompileSdkVersion = 21
+
+    //Libraries
+    gsonVersion = '2.3'
+    androidAnnotationsVersion = '21.0.3'
+    arrowVersion = '1.0.0'
+    cronetVersion = '16.0.0'
+
+    dataDependencies = [
+            gson: "com.google.code.gson:gson:${gsonVersion}",
+            cronet: "com.google.android.gms:play-services-cronet:${cronetVersion}"
+    ]
+}
