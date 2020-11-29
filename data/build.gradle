@@ -1,10 +1,20 @@
-apply plugin: 'java-library'
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 16
+    }
+}
 
 dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dataDependencies.retrofit
     implementation dataDependencies.retrofitConverter
+    implementation dataDependencies.room
+    annotationProcessor dataDependencies.annotationProcessor
+    implementation dataDependencies.roomRx
 
 }
 

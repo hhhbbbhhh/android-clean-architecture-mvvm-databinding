@@ -10,10 +10,15 @@ ext {
     retrofit = '2.1.0'
     androidAnnotationsVersion = '21.0.3'
     arrowVersion = '1.0.0'
+    def room_version = "2.2.5"
 
     dataDependencies = [
             retrofit: "com.squareup.retrofit2:retrofit:${retrofit}",
             retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit}",
             gson: "com.google.code.gson:gson:${gsonVersion}",
+            room: "androidx.room:room-runtime:$room_version",
+            annotationProcessor: "androidx.room:room-compiler:$room_version",
+            roomRx: "androidx.room:room-rxjava2:$room_version"
+
     ]
 }
