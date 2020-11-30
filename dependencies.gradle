@@ -10,7 +10,7 @@ ext {
     retrofit = '2.1.0'
     androidAnnotationsVersion = '21.0.3'
     arrowVersion = '1.0.0'
-    def room_version = "2.2.5"
+    room_version = "2.3.0-alpha01"
 
     dataDependencies = [
             retrofit: "com.squareup.retrofit2:retrofit:${retrofit}",
