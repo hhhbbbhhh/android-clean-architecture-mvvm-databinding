@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    ImdbMovieData.getInstance().getPlayNowList(1);
+                    ImdbMovieData.getInstance(getApplicationContext()).getPlayNowList(1);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

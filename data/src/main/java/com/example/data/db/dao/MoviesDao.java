@@ -19,7 +19,7 @@ public interface MoviesDao {
     Completable insertMovie(Movie movie);
 
     @Query("select * from movies")
-    Observable<List<Movie>> getPlayNowList();
+    Flowable<List<Movie>> getPlayNowList();
 
     @Query("Delete from movies")
     void clearMovies();
